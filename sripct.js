@@ -17,6 +17,13 @@ function addTask(){
     saveData();
 }
 
+function showTask() {
+    let savedData = localStorage.getItem("data");
+    if (savedData) {
+        listcontainer.innerHTML = savedData;
+    }
+}
+
 listcontainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("checked");
@@ -29,7 +36,7 @@ listcontainer.addEventListener("click", function(e){
 }, false);
 
 function saveData(){
-    localStorage.setItem("data", listContainer.innerHTML);
+    localStorage.setItem("data", listcontainer.innerHTML);
 }
 function showTask(){
     listcontainer.innerHTML = localStorage.getItem("data");
